@@ -1,7 +1,11 @@
 /* TODO - add your code to create a functional React component that renders a navigation bar for the different views in your single page application. You may consider conditionally rendering some options - for example 'Login' should be available if someone has not logged in yet. */
 import { Link } from 'react-router-dom'
 
-function Navigations({ token }){
+function Navigations({ setUser, token, setToken }){
+    function handleClick(){
+        setToken(null);
+        setUser(null);
+    }
     return (
         <>
         <nav>
@@ -10,7 +14,10 @@ function Navigations({ token }){
                 <Link to='/books'>Books</Link>
                 {
                     token ?
+                    <>
                     <Link to='/account'>Account</Link>
+                    <Link to='/logout' onClick={()=>{handleClick()}}>Logout</Link>
+                    </>
                     :
                     <>
                     <Link to='/login'>Log-in</Link>
