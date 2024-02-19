@@ -11,13 +11,15 @@ import Logout from './components/Logout'
 function App() {
     const [token, setToken] = useState(null)
     const [user, setUser] = useState(null)
+    const [books, setBooks] = useState(null)
+    const [selectedBook, setSelectedBook] = useState(null)
 
     return (
         <>
             <Navigations setUser={setUser} token={token} setToken={setToken} />
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/books' element={<Books />} />
+                <Route path='/books' element={<Books books={books} setBooks={setBooks} />} />
                 <Route path='/login' element={<Login user={user} setUser={setUser} token={token} setToken={setToken} />} />
                 <Route path='/register' element={<Register user={user} setUser={setUser} token={token} setToken={setToken} />} />
                 <Route path='/account' element={<Account />} />
