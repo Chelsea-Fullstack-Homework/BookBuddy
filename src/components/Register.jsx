@@ -1,9 +1,16 @@
 /* TODO - add your code to create a functional React component that renders a registration form */
+import RegisterForm from './RegisterForm'
 
-function Register(){
+function Register({ user, setUser, token, setToken }){
     return (
         <>
-            <h1>Register here</h1>
+        {
+            (token)
+            ?(<h1>Logged in as {user}</h1>)
+            :(<RegisterForm
+                setUser={setUser} 
+                setToken={setToken} />)
+        }
         </>
     )
 }
