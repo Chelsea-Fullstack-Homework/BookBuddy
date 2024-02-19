@@ -7,12 +7,12 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Account from './components/Account' 
 import Logout from './components/Logout' 
+import SingleBook from './components/SingleBook'
 
 function App() {
     const [token, setToken] = useState(null)
     const [user, setUser] = useState(null)
     const [books, setBooks] = useState(null)
-    const [selectedBook, setSelectedBook] = useState(null)
 
     return (
         <>
@@ -20,6 +20,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/books' element={<Books books={books} setBooks={setBooks} />} />
+                <Route path='/books/:id' element={<SingleBook />} />
                 <Route path='/login' element={<Login user={user} setUser={setUser} token={token} setToken={setToken} />} />
                 <Route path='/register' element={<Register user={user} setUser={setUser} token={token} setToken={setToken} />} />
                 <Route path='/account' element={<Account />} />
