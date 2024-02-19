@@ -5,19 +5,23 @@ import Home from './components/Home'
 import Navigations from './components/Navigations'
 import Login from './components/Login'
 import Register from './components/Register'
+import Account from './components/Account' 
+import Logout from './components/Logout' 
 
 function App() {
-    const [token, setToken] = useState('')
+    const [token, setToken] = useState(null)
+    const [user, setUser] = useState(null)
 
     return (
         <>
-            <Navigations token={token}/>
+            <Navigations setUser={setUser} token={token} setToken={setToken} />
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/books' element={<Books />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/register' element={<Register />} />
-
+                <Route path='/login' element={<Login user={user} setUser={setUser} token={token} setToken={setToken} />} />
+                <Route path='/register' element={<Register user={user} setUser={setUser} token={token} setToken={setToken} />} />
+                <Route path='/account' element={<Account />} />
+                <Route path='/logout' element={<Logout />} />
             </Routes>
         </>
     )
