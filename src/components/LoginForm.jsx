@@ -7,7 +7,6 @@ function LoginForm({ setUser, setToken }){
     const fetchLogin = async (event) => {
         event.preventDefault();
         try{
-            console.log(`email: ${email} ---- pass: ${password}`)
             // POST
             const endpoint = 'api/users/login';
             const url = `https://fsa-book-buddy-b6e748d1380d.herokuapp.com/${endpoint}`;
@@ -22,7 +21,6 @@ function LoginForm({ setUser, setToken }){
                 })
             });
             const result = await response.json();
-            console.log(result);
             if(result.message == 'Login successful!'){
                 setUser(`${email}`);
                 setToken(result.token);
