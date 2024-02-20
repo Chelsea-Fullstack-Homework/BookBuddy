@@ -20,10 +20,10 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/books' element={<Books books={books} setBooks={setBooks} />} />
-                <Route path='/books/:id' element={<SingleBook />} />
+                <Route path='/books/:id' element={<SingleBook token={token} />} />
                 <Route path='/login' element={<Login user={user} setUser={setUser} token={token} setToken={setToken} />} />
                 <Route path='/register' element={<Register user={user} setUser={setUser} token={token} setToken={setToken} />} />
-                <Route path='/account' element={<Account />} />
+                <Route path='/account' element={<Account token={token} />} />
                 <Route path='/logout' element={<Logout />} />
             </Routes>
         </>
