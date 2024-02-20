@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function Book({book, setSelectedBook}){
+function Book({book}){
 
     return (
         <>
