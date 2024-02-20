@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import SingleBookDetails from './SingleBookDetails'
 
-function SingleBook(){
+function SingleBook({token}){
     const {id} = useParams();
     const [bookDetails, setBookDetails] = useState(null)
 
@@ -21,12 +21,12 @@ function SingleBook(){
 
     useEffect(()=>{
         fetchSingleBook();
-    },[])
+    },[bookDetails])
 
     return (
         <>
             {
-                (bookDetails && <SingleBookDetails bookDetails={bookDetails} />)
+                (bookDetails && <SingleBookDetails bookDetails={bookDetails} token={token} />)
             }
         </>
     )
